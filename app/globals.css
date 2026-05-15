@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #14351d;
+}
+
+::selection {
+  background: #019527;
+  color: #ffffff;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+}
+
+.focus-ring {
+  @apply outline-none ring-offset-2 ring-offset-white focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2;
+}
