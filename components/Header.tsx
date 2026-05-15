@@ -27,7 +27,7 @@ export default function Header() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-brand-green/10 bg-white/88 shadow-sm backdrop-blur-xl">
+    <header className="glass-nav fixed inset-x-0 top-0 z-50 border-b border-brand-green/10 shadow-sm">
       <div className="section-shell">
         <div className="flex min-h-[74px] items-center justify-between gap-4">
           <a
@@ -95,7 +95,7 @@ export default function Header() {
             isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
           }`}
         >
-          <div className="overflow-hidden">
+          <div className="glass-menu overflow-hidden rounded-b-3xl shadow-sm">
             <nav
               aria-label={siteCopy.header.mobileNavAria}
               className="space-y-2 border-t border-brand-green/10 py-4 text-sm font-semibold text-slate-700"
