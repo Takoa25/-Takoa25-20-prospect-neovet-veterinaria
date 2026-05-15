@@ -57,7 +57,6 @@ export default function Hero() {
                 sizes="(min-width: 1024px) 44vw, 92vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-green-dark/30 via-transparent to-transparent" />
             </div>
           </div>
         </div>
