@@ -1,19 +1,43 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Manrope } from 'next/font/google';
+import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import type { ReactNode } from 'react';
 import { siteMetadata } from '@/lib/constants';
 import './globals.css';
 
-const heading = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['600', '700'],
-  variable: '--font-heading',
+// Clash Display — exclusiva para títulos e headlines (font-heading)
+const clash = localFont({
+  src: [
+    {
+      path: '../public/fonts/ClashDisplay-Regular.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/ClashDisplay-Medium.woff2',
+      weight: '500',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/ClashDisplay-Semibold.woff2',
+      weight: '600',
+      style: 'normal',
+    },
+    {
+      path: '../public/fonts/ClashDisplay-Bold.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-clash',
   display: 'swap',
+  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
 });
 
-const body = Manrope({
+// Inter — corpo de texto, labels, parágrafos e mobile
+const inter = Inter({
   subsets: ['latin'],
-  variable: '--font-body',
+  variable: '--font-inter',
   display: 'swap',
 });
 
@@ -25,7 +49,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${heading.variable} ${body.variable}`}>
+    <html lang="pt-BR" className={`${clash.variable} ${inter.variable}`}>
       <body className="font-sans antialiased">{children}</body>
     </html>
   );

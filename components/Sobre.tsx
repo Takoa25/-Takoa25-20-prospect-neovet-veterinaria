@@ -1,6 +1,7 @@
 import { siteCopy, siteImages } from '@/lib/constants';
 import Image from 'next/image';
 import { LuBadgeCheck, LuHeartPulse, LuShieldCheck } from 'react-icons/lu';
+import { PiPawPrintFill } from 'react-icons/pi';
 
 const badgeIcons = [LuBadgeCheck, LuHeartPulse, LuShieldCheck] as const;
 
@@ -11,11 +12,18 @@ const badges = siteCopy.about.badges.map((label, index) => ({
 
 export default function Sobre() {
   return (
-    <section id="sobre" className="bg-white py-20 sm:py-24">
-      <div className="section-shell grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+    <section id="sobre" className="relative overflow-hidden bg-brand-mint-light py-20 sm:py-24">
+      {/* Patinha decorativa */}
+      <PiPawPrintFill
+        className="pointer-events-none absolute right-8 top-10 h-32 w-32 rotate-[30deg] text-brand-mint opacity-[0.08] select-none sm:h-40 sm:w-40"
+        aria-hidden="true"
+      />
+
+      <div className="section-shell grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        {/* Coluna esquerda — Imagem */}
         <div className="order-2 lg:order-1">
-          <div className="relative mx-auto max-w-md rounded-[2rem] bg-brand-green-light/70 p-3 shadow-soft">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem]">
+          <div className="relative mx-auto max-w-md overflow-hidden rounded-[1.75rem] shadow-soft">
+            <div className="relative aspect-[4/5]">
               <Image
                 src={siteImages.about.src}
                 alt={siteImages.about.alt}
@@ -23,41 +31,35 @@ export default function Sobre() {
                 sizes="(min-width: 1024px) 38vw, 92vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-green-dark/35 via-transparent to-transparent" />
-            </div>
-            <div className="absolute -bottom-6 left-6 right-6 rounded-2xl bg-white p-5 shadow-card">
-              <p className="text-sm font-bold uppercase tracking-[0.18em] text-brand-green">
-                {siteCopy.about.imageEyebrow}
-              </p>
-              <p className="mt-1 font-heading text-2xl font-bold leading-tight text-brand-green-dark">
-                {siteCopy.about.imageTitle}
-              </p>
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/25 via-transparent to-transparent" />
             </div>
           </div>
         </div>
 
+        {/* Coluna direita — Texto */}
         <div className="order-1 lg:order-2">
-          <span className="text-sm font-bold uppercase tracking-[0.22em] text-brand-green">
+          <span className="text-sm font-semibold uppercase tracking-[0.22em] text-brand-mint">
             {siteCopy.about.eyebrow}
           </span>
-          <h2 className="mt-4 font-heading text-4xl font-bold leading-tight text-brand-green-dark sm:text-5xl">
+          <h2 className="mt-4 font-heading text-4xl font-bold leading-tight text-brand-charcoal sm:text-5xl">
             {siteCopy.about.title}
           </h2>
-          <p className="mt-6 text-lg leading-8 text-slate-700">
-            {siteCopy.about.description}
-          </p>
-          <p className="mt-4 text-lg leading-8 text-slate-700">
-            {siteCopy.about.secondaryDescription}
-          </p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          {/* Dois parágrafos em grid — lado a lado no desktop */}
+          <div className="mt-6 grid gap-5 text-[#555] lg:grid-cols-2">
+            <p className="text-base leading-8">{siteCopy.about.description}</p>
+            <p className="text-base leading-8">{siteCopy.about.secondaryDescription}</p>
+          </div>
+
+          {/* Badges de atributos */}
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {badges.map(({ label, icon: Icon }) => (
               <div
                 key={label}
-                className="rounded-2xl border border-brand-green/15 bg-brand-green-light px-5 py-4 text-center font-bold text-brand-green-dark"
+                className="flex items-center gap-3 rounded-2xl bg-white/70 px-4 py-3 font-medium text-brand-charcoal shadow-sm ring-1 ring-brand-mint/15"
               >
-                <Icon className="mx-auto mb-2 h-6 w-6 text-brand-green" aria-hidden="true" />
-                {label}
+                <Icon className="h-5 w-5 shrink-0 text-brand-mint" aria-hidden="true" />
+                <span className="text-sm">{label}</span>
               </div>
             ))}
           </div>

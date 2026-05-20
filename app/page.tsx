@@ -1,5 +1,6 @@
 import Contato from '@/components/Contato';
-import Especialidades from '@/components/Especialidades';
+import Depoimentos from '@/components/Depoimentos';
+
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
@@ -14,8 +15,9 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <Especialidades />
+
         <Servicos />
+        <Depoimentos />
         <Sobre />
         <Contato />
       </main>

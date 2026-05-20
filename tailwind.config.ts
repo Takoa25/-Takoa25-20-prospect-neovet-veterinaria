@@ -9,25 +9,33 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-body)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-        heading: ['var(--font-heading)', 'Georgia', 'serif'],
+        // Corpo de texto: Inter — ótima legibilidade em mobile e telas pequenas
+        sans: ['var(--font-inter)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        // Títulos e headlines: Clash Display — identidade visual premium
+        heading: ['var(--font-clash)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         brand: {
-          green: '#019527',
-          'green-dark': '#017a20',
-          'green-light': '#e6f9eb',
+          mint: '#00C896',
+          'mint-light': '#E0F7ED',
+          charcoal: '#131313',
+          'charcoal-2': '#1C1B1B',
+          surface: '#F8FBF9',
           white: '#FFFFFF',
         },
       },
       boxShadow: {
-        soft: '0 18px 60px rgba(1, 92, 24, 0.12)',
-        card: '0 12px 35px rgba(1, 92, 24, 0.1)',
+        soft: '0 18px 60px rgba(0, 200, 150, 0.10)',
+        card: '0 12px 35px rgba(0, 0, 0, 0.08)',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+        '5xl': '2.5rem',
       },
       keyframes: {
         pulseSoft: {
-          '0%, 100%': { boxShadow: '0 0 0 0 rgba(37, 211, 102, 0.4)' },
-          '50%': { boxShadow: '0 0 0 14px rgba(37, 211, 102, 0)' },
+          '0%, 100%': { boxShadow: '0 0 0 0 rgba(0, 200, 150, 0.4)' },
+          '50%': { boxShadow: '0 0 0 14px rgba(0, 200, 150, 0)' },
         },
         float: {
           '0%, 100%': { transform: 'translateY(0)' },

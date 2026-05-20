@@ -23,13 +23,19 @@ export type Service = {
   layout: 'feature' | 'wide' | 'standard';
 };
 
+export type Testimonial = {
+  name: string;
+  context: string;
+  text: string;
+};
+
 const whatsappMessage =
   'Olá! Vim pelo site e gostaria de agendar uma consulta na Neo Vet. Poderiam me passar os horários disponíveis?';
 
 export const clinic = {
   name: 'Neo Vet',
   fullName: 'Neo Vet — Clínica Veterinária',
-  tagline: 'Cuidado especializado para quem você ama',
+  tagline: 'Cuidado especializado para o seu pet',
   phoneDisplay: '(19) 3281-7003',
   phoneHref: 'tel:+551932817003',
   whatsappMessage,
@@ -41,12 +47,17 @@ export const clinic = {
     neighborhood: 'Nova Aparecida',
     cityState: 'Campinas, SP',
     cep: '13068-627',
-    full: 'Alberto Bosco, 173 — Nova Aparecida, Campinas - SP, 13068-627',
+    full: 'Alberto Bosco, 173 — Nova Aparecida, Campinas/SP',
     mapsHref:
       'https://www.google.com/maps/search/?api=1&query=Alberto%20Bosco%20173%20Nova%20Aparecida%20Campinas%20SP%2013068-627',
     embedHref:
       'https://www.google.com/maps?q=Alberto%20Bosco%20173%20Nova%20Aparecida%20Campinas%20SP%2013068-627&output=embed',
   },
+  hours: [
+    { day: 'Segunda a Sexta', time: '08:30 – 18:00' },
+    { day: 'Sábado', time: '08:00 – 12:00' },
+    { day: 'Domingo', time: 'Fechado' },
+  ],
 } as const;
 
 export const siteMetadata = {
@@ -122,6 +133,12 @@ export const siteCopy = {
     locationTitle: 'Localização',
     mapsCta: 'Abrir no Google Maps',
     mapTitle: 'Mapa com a localização da Neo Vet em Campinas',
+    hoursTitle: 'Horário de Atendimento',
+    addressTitle: 'Endereço',
+  },
+  testimonials: {
+    eyebrow: 'O que dizem nossos clientes',
+    title: 'Depoimentos de Confiança',
   },
   footer: {
     copyright: '© 2026 Neo Vet Clínica Veterinária. Todos os direitos reservados.',
@@ -140,8 +157,9 @@ export const siteCopy = {
 
 export const navItems: NavItem[] = [
   { label: 'Início', href: '#inicio' },
-  { label: 'Especialidades', href: '#especialidades' },
+
   { label: 'Serviços', href: '#servicos' },
+  { label: 'Depoimentos', href: '#depoimentos' },
   { label: 'Sobre', href: '#sobre' },
   { label: 'Contato', href: '#contato' },
 ];
@@ -162,6 +180,24 @@ export const specialties: Specialty[] = [
     description:
       'Investigação clínica para coceiras, alergias e infecções recorrentes, buscando alívio, controle e qualidade de vida.',
     conditions: ['Alergias', 'Infecções de pele', 'Otite', 'Queda de pelos'],
+  },
+];
+
+export const testimonials: Testimonial[] = [
+  {
+    name: 'Valéria Francisqueti',
+    context: 'Tutora de Pug',
+    text: 'Meu Pug foi muito bem cuidado, fez cirurgia nos dois olhos, saiu de lá super bem, agradeço toda equipe do Dr Eduardo, saímos de Santa Bárbara do Oeste para fazer esse procedimento e valeu muito a pena ❤️',
+  },
+  {
+    name: 'Waldenice Silveira',
+    context: 'Tutora',
+    text: 'Meu bebê fez cirurgia do olho cereja e limpeza de tártaro, sempre fomos bem atendidos por todos, inclusive pelo WhatsApp.',
+  },
+  {
+    name: 'Daniel Furlan',
+    context: 'Tutor de American Bully',
+    text: 'Excelente profissional, tirou meu American Bully de uma crise alérgica muito grave. Muito obrigado!',
   },
 ];
 
